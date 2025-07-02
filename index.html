@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>product API management system</h1>
+        
+        <div class="warning">
+            <strong>important:</strong> make sure your JSON server is running on http://localhost:3000/products before using these functions.
+        </div>
+
+        <h2>main functions</h2>
+
+        <div class="function">
+            <div class="function-name">getProducts()</div>
+            <div class="description">
+                retrieves all products from the API and displays them in a nice table format in the console. 
+                this function makes a GET request to fetch the current product list and shows it using console.table() 
+                which automatically formats the data into rows and columns for easy reading.
+            </div>
+            <div class="example">getProducts()</div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">createProduct(productObject)</div>
+            <div class="description">
+                creates a new product by sending a POST request to the API. you need to provide a complete product 
+                object with all required fields: name, description, price (number), category, and stock (number). 
+                the function validates all fields before sending the request to prevent errors.
+            </div>
+            <div class="example">
+                createProduct({<br>
+                &nbsp;&nbsp;id: 10,<br>
+                &nbsp;&nbsp;name: "gaming mouse",<br>
+                &nbsp;&nbsp;description: "high precision gaming mouse",<br>
+                &nbsp;&nbsp;price: 79.99,<br>
+                &nbsp;&nbsp;category: "accessories",<br>
+                &nbsp;&nbsp;stock: 15<br>
+                })
+            </div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">updateProduct(id, updatedFields)</div>
+            <div class="description">
+                updates an existing product by its ID using a PUT request. you only need to include the fields 
+                you want to change - you don't have to provide all fields. the function validates that price 
+                and stock are numbers if included, and that text fields are not empty. the ID should be a string.
+            </div>
+            <div class="example">
+                updateProduct("1", {<br>
+                &nbsp;&nbsp;price: 199.99,<br>
+                &nbsp;&nbsp;stock: 25<br>
+                })
+            </div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">deleteProduct(id)</div>
+            <div class="description">
+                permanently removes a product from the API using a DELETE request. you just need to provide 
+                the product ID as a string. once deleted, the product cannot be recovered, so use this function 
+                carefully. the function will show a confirmation message when the deletion is successful.
+            </div>
+            <div class="example">deleteProduct("3")</div>
+        </div>
+
+        <h2>test functions (easy to use)</h2>
+
+        <div class="function">
+            <div class="function-name">testGet()</div>
+            <div class="description">
+                simple wrapper for getProducts(). just calls the get function to show all current products 
+                in the console table. use this when you want to quickly see what products exist in your database.
+            </div>
+            <div class="example">testGet()</div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">testPost()</div>
+            <div class="description">
+                creates a predefined test product (PlayStation 6) without needing to type all the product details. 
+                this is useful for quickly testing the create functionality. the product has all required fields 
+                already filled in with sample data.
+            </div>
+            <div class="example">testPost()</div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">testPut(id)</div>
+            <div class="description">
+                updates a product with predefined changes. it will change the product name to "PlayStation 6 Pro", 
+                update the description, set price to 900, and change stock to 30. you just need to provide the ID 
+                of the product you want to update.
+            </div>
+            <div class="example">testPut("2")</div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">testDelete(id)</div>
+            <div class="description">
+                simple wrapper for deleteProduct(). just provide the ID of the product you want to remove. 
+                this makes it easier to test the delete functionality without typing the full function name.
+            </div>
+            <div class="example">testDelete("4")</div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">createCustomProduct(name, description, price, category, stock)</div>
+            <div class="description">
+                convenient function to create products without writing the full object syntax. just provide 
+                the five parameters in order and it will create the product object automatically and send 
+                it to the API. makes creating products much faster and easier.
+            </div>
+            <div class="example">createCustomProduct("wireless headphones", "bluetooth headphones with noise canceling", 149.99, "audio", 20)</div>
+        </div>
+
+        <div class="function">
+            <div class="function-name">runAllTests()</div>
+            <div class="description">
+                executes a complete sequence of all CRUD operations automatically with delays between each step. 
+                it will: get all products, create a new product, update that product, delete it, and show final 
+                results. this is perfect for testing that all API endpoints are working correctly.
+            </div>
+            <div class="example">runAllTests()</div>
+        </div>
+
+        <h2>how to find product IDs</h2>
+        <div class="function">
+            <div class="description">
+                to use update or delete functions, you need to know the product ID. follow these steps:
+                <br><br>
+                1. run testGet() or getProducts() first<br>
+                2. look at the console table that appears<br>
+                3. find the "id" column - these are the IDs you can use<br>
+                4. use those IDs in your update/delete functions<br>
+                5. remember IDs are strings, so use quotes: "1", "2", etc.
+            </div>
+        </div>
+
+        <div class="terminal">
+            <h1>to execute this program, open the browser console (F12)</h1>
+        </div>
+    </div>
+
+    <div id="containerPOST"></div>
+
+    <script src="/script.js"></script>
+</html>
