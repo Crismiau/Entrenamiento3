@@ -216,14 +216,6 @@ El archivo `data.json` incluye 6 productos de ejemplo:
 - **JSON Server**: Backend simulado
 - **Console API**: Visualización de datos
 
-## 🤝 Contribución
-
-Para contribuir al proyecto:
-1. Fork el repositorio
-2. Crear una rama para tu feature
-3. Realizar cambios y pruebas
-4. Enviar pull request
-
 ## 📄 Licencia
 
 Este proyecto está bajo licencia MIT. Ver archivo LICENSE para más detalles.
